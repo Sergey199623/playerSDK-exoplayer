@@ -1,0 +1,19 @@
+ru.player.sdk
+color black
+color purple_200
+color purple_500
+color purple_700
+color teal_200
+color teal_700
+color white
+drawable base_ic_exit_full_screen
+drawable base_ic_full_screen
+drawable base_ic_pause
+drawable base_ic_play_arrow
+drawable base_ic_seek_backward
+drawable base_ic_seek_forward
+drawable base_ic_stop
+drawable ic_launcher_background
+drawable ic_play_arrow
+string app_name
+style Theme_CustomVideoPlayerSDK
