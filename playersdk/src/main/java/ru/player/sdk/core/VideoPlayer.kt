@@ -73,11 +73,13 @@ class VideoPlayer : VideoPlayerApi {
 
     override fun pause() {
         exoPlayer.playWhenReady = false
+        isPlaying = false
         playbackState.value = PlaybackState.PAUSED
     }
 
     override fun stop() {
         exoPlayer.stop()
+        isPlaying = false
         playbackState.value = PlaybackState.STOPPED
     }
 

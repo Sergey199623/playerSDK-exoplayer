@@ -64,5 +64,10 @@ interface VideoPlayerApi {
      * @param volume - значение громкости в Float (0.0f .. 1.0f)
      */
     fun changeVolume(volume: Float)
+
+    /**
+     * Перемотка видео на 10 сек вперед / назад в зависимости от значения в параметре.
+     * @param isForward - если true - перемотка вперёд, иначе мотаем назад
+     */
     fun seekTo(isForward: Boolean)
 }
