@@ -16,9 +16,16 @@ interface VideoPlayerApi {
     fun setInitPlayer(context: Context)
 
     /**
-     * Возвращает экземпляр ExoPlayer
+     * Инициализация ExoPlayer
+     * @return - возвращает экземпляр ExoPlayer
      */
     fun getExoPlayer(): ExoPlayer
+
+    /**
+     * Инициализация StyledPlayerView для отображения View с пунктами управления Видео-плеера
+     * @return - возвращает экземпляр StyledPlayerView
+     */
+    fun getPlayerView(context: Context): StyledPlayerView
 
     /**
      * Передача url для отображения видео. Важно: видео, которое нужно проиграть, доставаемое из
@@ -71,6 +78,4 @@ interface VideoPlayerApi {
      * @param isForward - если true - перемотка вперёд, иначе мотаем назад
      */
     fun seekTo(isForward: Boolean)
-
-    fun getPlayerView(context: Context): StyledPlayerView
 }

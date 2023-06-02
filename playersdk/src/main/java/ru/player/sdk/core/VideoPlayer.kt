@@ -2,10 +2,6 @@ package ru.player.sdk.core
 
 import android.content.Context
 import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
-import androidx.lifecycle.ProcessLifecycleOwner
 import ru.player.sdk.utils.PlaybackState
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
@@ -34,24 +30,6 @@ class VideoPlayer : VideoPlayerApi {
     override var currentVideoUrl: String? = null
 
     override var isPlaying: Boolean = false
-
-    init {
-        ProcessLifecycleOwner.get().lifecycle.addObserver(object : LifecycleObserver {
-            @OnLifecycleEvent(Lifecycle.Event.ON_START)
-            fun onForeground() {
-                if (playbackState.value == PlaybackState.PLAYING) {
-                    exoPlayer.playWhenReady = true
-                }
-            }
-
-            @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-            fun onBackground() {
-                if (playbackState.value == PlaybackState.PLAYING) {
-                    exoPlayer.playWhenReady = false
-                }
-            }
-        })
-    }
 
     override fun setVideoUrl(url: String, context: Context) {
         currentVideoUrl = url
