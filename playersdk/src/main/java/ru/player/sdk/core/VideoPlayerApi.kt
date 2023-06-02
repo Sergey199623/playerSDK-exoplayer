@@ -2,6 +2,7 @@ package ru.player.sdk.core
 
 import android.content.Context
 import com.google.android.exoplayer2.ExoPlayer
+import com.google.android.exoplayer2.ui.StyledPlayerView
 
 interface VideoPlayerApi {
 
@@ -70,4 +71,6 @@ interface VideoPlayerApi {
      * @param isForward - если true - перемотка вперёд, иначе мотаем назад
      */
     fun seekTo(isForward: Boolean)
+
+    fun getPlayerView(context: Context): StyledPlayerView
 }

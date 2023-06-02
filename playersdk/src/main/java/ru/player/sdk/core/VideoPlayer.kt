@@ -13,6 +13,8 @@ import com.google.android.exoplayer2.PlaybackParameters
 import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
+import com.google.android.exoplayer2.ui.AspectRatioFrameLayout
+import com.google.android.exoplayer2.ui.StyledPlayerView
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 
@@ -108,6 +110,13 @@ class VideoPlayer : VideoPlayerApi {
         when (isForward) {
             true -> exoPlayer.seekTo(exoPlayer.currentPosition + 10000)
             else -> exoPlayer.seekTo(exoPlayer.currentPosition - 10000)
+        }
+    }
+
+    override fun getPlayerView(context: Context): StyledPlayerView {
+        return StyledPlayerView(context).apply {
+            player = getExoPlayer()
+            resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FILL
         }
     }
 }

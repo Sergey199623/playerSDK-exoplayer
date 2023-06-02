@@ -24,7 +24,6 @@ fun CustomVideoPlayerControlCenterBar(
     onSeekForwardClicked: () -> Unit,
     onSeekBackwardClicked: () -> Unit
 ) {
-
     Box(
         modifier = Modifier
             .fillMaxSize()
