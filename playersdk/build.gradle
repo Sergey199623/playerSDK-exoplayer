@@ -85,30 +85,6 @@ project.afterEvaluate {
     }
 }
 
-//publishing {
-//    publications {
-//        maven(MavenPublication) {
-//            groupId 'com.github.custom.exoplayer'  // Замените на свою группу
-//            artifactId 'sdk-impl'  // Замените на свой идентификатор артефакта
-//            version '1.0.0'  // Замените на свою версию
-//
-//            // Определите артефакты, которые должны быть опубликованы
-//            from components.getByName("debug")
-////            from compo
-////            from components.name
-//        }
-//    }
-//    repositories {
-//        maven {
-//            url "https://github.com/Sergey199623/playerSDK"
-//            credentials {
-//                username = "Sergey199623"
-//                password = "wV7w08GK3TJQRgQ6GoOw42IKpxyEHsZ3GXKDnYxDTbM"
-//            }
-//        }
-//    }
-//}
-
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.8.0'
