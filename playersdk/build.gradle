@@ -75,7 +75,7 @@ afterEvaluate {
         }
         repositories {
             maven {
-                url "https://github.com/Sergey199623/playerSDK"
+                url "https://github.com/Sergey199623/playerSDK/main"
                 credentials {
                     username = "Sergey199623"
                     password = "wV7w08GK3TJQRgQ6GoOw42IKpxyEHsZ3GXKDnYxDTbM"
