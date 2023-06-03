@@ -17,6 +17,18 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+            withJavadocJar()
+        }
+
+        singleVariant('debug') {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -38,24 +50,64 @@ android {
     }
 }
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId 'com.github.custom.exoplayer'  // Замените на свою группу
-            artifactId 'sdk-impl'  // Замените на свой идентификатор артефакта
-            version '1.0.0'  // Замените на свою версию
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                components.getByName('release')
+
+                // You can then customize attributes of the publication as shown below.
+                groupId = 'com.github.custom.exoplayer'
+                artifactId = 'sdk-impl'
+                version = '1.0.0'
+            }
+            // Creates a Maven publication called “debug”.
+            debug(MavenPublication) {
+                // Applies the component for the debug build variant.
+                components.getByName('debug')
+
+                groupId = 'com.github.custom.exoplayer'
+                artifactId = 'sdk-impl'
+                version = '1.0.0'
+            }
         }
-    }
-    repositories {
-        maven {
-            url "https://github.com/Sergey199623/playerSDK"
-            credentials {
-                username = "Sergey199623"
-                password = "wV7w08GK3TJQRgQ6GoOw42IKpxyEHsZ3GXKDnYxDTbM"
+        repositories {
+            maven {
+                url "https://github.com/Sergey199623/playerSDK"
+                credentials {
+                    username = "Sergey199623"
+                    password = "wV7w08GK3TJQRgQ6GoOw42IKpxyEHsZ3GXKDnYxDTbM"
+                }
             }
         }
     }
 }
+
+//publishing {
+//    publications {
+//        maven(MavenPublication) {
+//            groupId 'com.github.custom.exoplayer'  // Замените на свою группу
+//            artifactId 'sdk-impl'  // Замените на свой идентификатор артефакта
+//            version '1.0.0'  // Замените на свою версию
+//
+//            // Определите артефакты, которые должны быть опубликованы
+//            from components.getByName("debug")
+////            from compo
+////            from components.name
+//        }
+//    }
+//    repositories {
+//        maven {
+//            url "https://github.com/Sergey199623/playerSDK"
+//            credentials {
+//                username = "Sergey199623"
+//                password = "wV7w08GK3TJQRgQ6GoOw42IKpxyEHsZ3GXKDnYxDTbM"
+//            }
+//        }
+//    }
+//}
 
 dependencies {
 
