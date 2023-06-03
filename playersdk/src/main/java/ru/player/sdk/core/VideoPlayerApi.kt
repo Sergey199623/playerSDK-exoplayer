@@ -6,7 +6,6 @@ import com.google.android.exoplayer2.ui.StyledPlayerView
 
 interface VideoPlayerApi {
 
-    var isPlaying: Boolean
     var currentVideoUrl: String?
 
     /**
@@ -23,9 +22,11 @@ interface VideoPlayerApi {
 
     /**
      * Инициализация StyledPlayerView для отображения View с пунктами управления Видео-плеера
+     * @param context - контекст, необходимый для инициализации StyledPlayerView
+     * @param isNeedBaseControllers - флаг для включения / отключения базовых кнопок управления
      * @return - возвращает экземпляр StyledPlayerView
      */
-    fun getPlayerView(context: Context): StyledPlayerView
+    fun getPlayerView(context: Context, isNeedBaseControllers: Boolean): StyledPlayerView
 
     /**
      * Передача url для отображения видео. Важно: видео, которое нужно проиграть, доставаемое из
