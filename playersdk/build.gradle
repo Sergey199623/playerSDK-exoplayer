@@ -50,7 +50,7 @@ android {
     }
 }
 
-afterEvaluate {
+project.afterEvaluate {
     publishing {
         publications {
             // Creates a Maven publication called "release".
