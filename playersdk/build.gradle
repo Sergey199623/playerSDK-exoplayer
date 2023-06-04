@@ -73,7 +73,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.Sergey199623'
             artifactId = 'playerSDK-exoplayer'
-            version = '1.0.2'
+            version = '1.0.3'
 
             afterEvaluate {
                 from components.release

@@ -9,7 +9,7 @@ color white
 drawable base_ic_exit_full_screen
 drawable base_ic_full_screen
 drawable base_ic_pause
-drawable base_ic_play_arrow
+drawable base_ic_play
 drawable base_ic_seek_backward
 drawable base_ic_seek_forward
 drawable base_ic_stop

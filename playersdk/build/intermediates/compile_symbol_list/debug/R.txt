@@ -8,7 +8,7 @@ int color white 0x0
 int drawable base_ic_exit_full_screen 0x0
 int drawable base_ic_full_screen 0x0
 int drawable base_ic_pause 0x0
-int drawable base_ic_play_arrow 0x0
+int drawable base_ic_play 0x0
 int drawable base_ic_seek_backward 0x0
 int drawable base_ic_seek_forward 0x0
 int drawable base_ic_stop 0x0
