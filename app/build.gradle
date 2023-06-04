@@ -1,5 +1,5 @@
 plugins {
-    id 'org.jetbrains.kotlin.android'
+//    id 'org.jetbrains.kotlin.android'
     id 'com.android.application'
 }
 
@@ -32,14 +32,15 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion '1.4.7'
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
+//    kotlinOptions {
+//        jvmTarget = JavaVersion.VERSION_1_8.toString()
+//    }
 }
 
 dependencies {
 
     implementation project(':playersdk')
+    implementation 'com.github.Sergey199623:playerSDK-exoplayer:-SNAPSHOT'
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
