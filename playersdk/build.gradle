@@ -22,11 +22,6 @@ android {
             withSourcesJar()
             withJavadocJar()
         }
-
-        singleVariant('debug') {
-            withSourcesJar()
-            withJavadocJar()
-        }
     }
 
     buildTypes {
@@ -50,54 +45,20 @@ android {
     }
 }
 
-project.afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                // Applies the component for the release build variant.
-                components.getByName('release')
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.Sergey199623'
+            artifactId = 'playerSDK-exoplayer'
+            version = '1.0.0'
 
-                // You can then customize attributes of the publication as shown below.
-                groupId = 'com.github.custom.exoplayer'
-                artifactId = 'sdk-impl'
-                version = '1.0.0'
-            }
-            // Creates a Maven publication called “debug”.
-            debug(MavenPublication) {
-                // Applies the component for the debug build variant.
-                components.getByName('debug')
-
-                groupId = 'com.github.custom.exoplayer'
-                artifactId = 'sdk-impl'
-                version = '1.0.0'
-            }
-        }
-        repositories {
-            maven {
-                url "https://github.com/Sergey199623/playerSDK/main"
-                credentials {
-                    username = "Sergey199623"
-                    password = "wV7w08GK3TJQRgQ6GoOw42IKpxyEHsZ3GXKDnYxDTbM"
-                }
+            afterEvaluate {
+                from components.release
             }
         }
     }
 }
 
-//publishing {
-//    publications {
-//        maven(MavenPublication) {
-//            groupId 'com.github.custom.exoplayer'  // Замените на свою группу
-//            artifactId 'sdk-impl'  // Замените на свой идентификатор артефакта
-//            version '1.0.0'  // Замените на свою версию
-//
-//            // Определите артефакты, которые должны быть опубликованы
-//            from components.getByName("debug")
-////            from compo
-////            from components.name
-//        }
-//    }
 //    repositories {
 //        maven {
 //            url "https://github.com/Sergey199623/playerSDK"
@@ -126,6 +87,9 @@ dependencies {
     implementation 'com.google.android.exoplayer:exoplayer-core:2.18.7'
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.18.7'
     implementation 'androidx.lifecycle:lifecycle-process:2.6.1'
+
+//    implementation 'com.github.Sergey199623:playerSDK-exoplayer:Tag'
+    implementation 'com.github.Sergey199623:playerSDK-exoplayer:-SNAPSHOT'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
