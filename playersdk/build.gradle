@@ -1,6 +1,6 @@
 plugins {
     id 'com.android.library'
-//    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
     id 'maven-publish'
 }
 
@@ -40,35 +40,10 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion '1.4.7'
     }
-//    kotlinOptions {
-//        jvmTarget = '1.8'
-//    }
-}
-
-publishing {
-    publications {
-        release(MavenPublication) {
-            groupId = 'com.github.Sergey199623'
-            artifactId = 'playerSDK-exoplayer'
-            version = '1.0.0'
-
-            afterEvaluate {
-                from components.release
-            }
-        }
+    kotlinOptions {
+        jvmTarget = '1.8'
     }
 }
-
-//    repositories {
-//        maven {
-//            url "https://github.com/Sergey199623/playerSDK"
-//            credentials {
-//                username = "Sergey199623"
-//                password = "wV7w08GK3TJQRgQ6GoOw42IKpxyEHsZ3GXKDnYxDTbM"
-//            }
-//        }
-//    }
-//}
 
 dependencies {
 
@@ -88,10 +63,21 @@ dependencies {
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.18.7'
     implementation 'androidx.lifecycle:lifecycle-process:2.6.1'
 
-//    implementation 'com.github.Sergey199623:playerSDK-exoplayer:Tag'
-    implementation 'com.github.Sergey199623:playerSDK-exoplayer:-SNAPSHOT'
-
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.Sergey199623'
+            artifactId = 'playerSDK-exoplayer'
+            version = '1.0.0'
+
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
 }

@@ -1,5 +1,5 @@
 plugins {
-//    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.android'
     id 'com.android.application'
 }
 
@@ -32,9 +32,9 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion '1.4.7'
     }
-//    kotlinOptions {
-//        jvmTarget = JavaVersion.VERSION_1_8.toString()
-//    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
