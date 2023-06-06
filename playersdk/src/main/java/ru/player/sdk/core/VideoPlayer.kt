@@ -1,5 +1,7 @@
 package ru.player.sdk.core
 
+import android.app.Activity
+import android.app.PictureInPictureParams
 import android.content.Context
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
@@ -84,4 +86,8 @@ class VideoPlayer : VideoPlayerApi {
             resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FILL
             useController = isNeedBaseControllers
         }
+
+    override fun enterPipMode(context: Activity, params: PictureInPictureParams) {
+        context.enterPictureInPictureMode(params)
+    }
 }

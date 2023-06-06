@@ -1,5 +1,7 @@
 package ru.player.sdk.core
 
+import android.app.Activity
+import android.app.PictureInPictureParams
 import android.content.Context
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.ui.StyledPlayerView
@@ -79,4 +81,6 @@ interface VideoPlayerApi {
      * @param isForward - если true - перемотка вперёд, иначе мотаем назад
      */
     fun seekTo(isForward: Boolean)
+
+    fun enterPipMode(context: Activity, params: PictureInPictureParams)
 }
