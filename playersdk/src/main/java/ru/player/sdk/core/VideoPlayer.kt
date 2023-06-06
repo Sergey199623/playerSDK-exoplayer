@@ -87,7 +87,14 @@ class VideoPlayer : VideoPlayerApi {
             useController = isNeedBaseControllers
         }
 
-    override fun enterPipMode(context: Activity, params: PictureInPictureParams) {
-        context.enterPictureInPictureMode(params)
+    override fun enterPipMode(activity: Activity, params: PictureInPictureParams) {
+        activity.enterPictureInPictureMode(params)
+    }
+
+    override fun onDisposePipMode(activity: Activity) {
+        if (activity.isInPictureInPictureMode) {
+            exoPlayer.playWhenReady = false
+            exoPlayer.setVideoSurfaceView(null)
+        }
     }
 }

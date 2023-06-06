@@ -82,5 +82,7 @@ interface VideoPlayerApi {
      */
     fun seekTo(isForward: Boolean)
 
-    fun enterPipMode(context: Activity, params: PictureInPictureParams)
+    fun enterPipMode(activity: Activity, params: PictureInPictureParams)
+
+    fun onDisposePipMode(activity: Activity)
 }
